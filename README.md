@@ -42,6 +42,7 @@ plt.ylabel('Price')
 plt.legend()
 plt.show()
 ```
+![Stock Price Over Time](https://raw.githubusercontent.com/Chisom-Okoli/Time-Series-Analysis-Python-Internship/main/Stock%20price%20over%20time.png)
 
 3. Decompose the series
 ```python
@@ -51,6 +52,9 @@ decomposition = seasonal_decompose(df['Close'], model='additive', period=30)
 decomposition.plot()
 plt.show()
 ```
+![Close Decomposition](https://raw.githubusercontent.com/Chisom-Okoli/Time-Series-Analysis-Python-Internship/main/Close%20decomposition.png)
+
+
 4. Apply Moving Average Smoothing
 ```python
 df['MA_7'] = df['Close'].rolling(window=7).mean()
@@ -65,5 +69,31 @@ plt.xlabel('Date')
 plt.ylabel('Price')
 plt.legend()
 plt.show()
+```
+![Moving Average Smoothing](https://raw.githubusercontent.com/Chisom-Okoli/Time-Series-Analysis-Python-Internship/main/Moving%20average%20smoothing.png)
+
+## Key Findings
+
+From the time-series analysis of the stock price dataset, the following insights were observed:
+
+1. **Overall Trend**
+   - The stock price shows a clear long-term movement rather than random fluctuations.
+   - The trend component from the decomposition indicates whether the market was generally increasing or decreasing over the period studied.
+
+2. **Seasonality**
+   - The seasonal component reveals recurring patterns in the stock price over regular intervals.
+   - This suggests that price movements are partly influenced by periodic factors such as monthly or market-cycle effects.
+
+3. **Short-Term Fluctuations (Noise)**
+   - The residual component contains irregular movements that cannot be explained by trend or seasonality.
+   - These fluctuations likely reflect market volatility, news events, or unexpected external factors.
+
+4. **Effect of Moving Averages**
+   - The 7-day moving average captures short-term trends and reacts more quickly to price changes.
+   - The 30-day moving average smooths out short-term volatility and better represents the overall market direction.
+   - Comparing the original series with the moving averages makes underlying trends easier to interpret.
+
+5. **Pattern Recognition**
+   - The combination of decomposition and smoothing confirms that stock prices are not purely random but follow identifiable structures over time.
 
 
